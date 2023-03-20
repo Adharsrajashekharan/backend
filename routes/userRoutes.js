@@ -57,12 +57,9 @@ router.post("/register", registerController);
 
 router.post('/forgot-password',forgotPasswordController)
 
-router.get("/getallusers",getallusers)
-
-
+router.get("/getallusers",authMiddleware,getallusers)
 
 router.get("/getallcars",getallcars)
-
 
 router.post("/getuserdata",authMiddleware,authController)
 
@@ -80,7 +77,7 @@ router.get("/getuserinfo",authMiddleware,getUserInfo)
 
 
 
-router.get("/getallbookings",getAllBookings) 
+router.get("/getallbookings",authMiddleware,getAllBookings) 
 
 
 router.post("/verify-otp",verifyOTPController)
@@ -99,11 +96,11 @@ router.get("/profile", userProfile)
 router.post('/update',updateDocuments)
 
 
-router.get('/usa',findcarusa)
+router.get('/usa',authMiddleware,findcarusa)
 
-router.get('/uk',findcaruk)
+router.get('/uk',authMiddleware,findcaruk)
 
-router.get('/canada',findcarcanada)
+router.get('/canada',authMiddleware,findcarcanada)
 
 
 
