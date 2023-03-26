@@ -111,11 +111,11 @@ router.post("/uncancelcarbooking",authMiddleware, uncancelcarbooking)
 // router.post('/update',updateDocuments)
 
 
-router.get('/trivandrum',authMiddleware,findcarusa)
+router.get('/trivandrum',findcarusa)
 
-router.get('/ernakulam',authMiddleware,findcaruk)
+router.get('/ernakulam',findcaruk)
 
-router.get('/kozhikode',authMiddleware,findcarcanada)
+router.get('/kozhikode',findcarcanada)
 
 
 
