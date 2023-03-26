@@ -35,6 +35,13 @@ const registerController = async (req, res) => {
           .status(200)
           .send({ message: "User Already Exist", success: false });
       }
+
+      const exisitingPhone = await userModel.findOne({ phoneNumber: req.body.phoneNumber });
+        if(exisitingPhone){
+         return res 
+         .status(200)
+        .send({ message: "PhoneNumber Already Exist", success: false });
+        }
   
       // Generate OTP and send it to user's phone number
       const otp = Math.floor(1000 + Math.random() * 9000);
