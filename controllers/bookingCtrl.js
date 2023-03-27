@@ -32,7 +32,6 @@ const bookcaroffline=async(req,res)=>{
       const newbooking= new Booking(req.body)
   await newbooking.save()
   const car =await Car.findOne({_id:req.body.car})
-  console.log("duuuuuuuu",car)
   car.bookedTimeSlots.push(req.body.bookedTimeSlots)
   await car.save()
   res.send("your booking is successfull")
@@ -48,8 +47,6 @@ const bookcaroffline=async(req,res)=>{
   const bookCar= async(req,res)=>{
     // req.body.transactionId ="1234"
     const {token}=req.body
-    console.log("00000",token)
-    console.log("11111",req.body)
   
     try {
   const customer =await stripe.customers.create({
@@ -70,7 +67,6 @@ const bookcaroffline=async(req,res)=>{
     const newbooking= new Booking(req.body)
     await newbooking.save()
     const car =await Car.findOne({_id:req.body.car})
-    console.log("duuuuuuuu",car)
     
     car.bookedTimeSlots.push(req.body.bookedTimeSlots)
     await car.save()
@@ -86,7 +82,6 @@ const bookcaroffline=async(req,res)=>{
   }
 
   const cancelcarbooking=async(req,res)=>{
-    console.log("depu",req.body)
     
     const bookingId = req.body.reqObj;
 
@@ -96,10 +91,8 @@ const bookcaroffline=async(req,res)=>{
 
     // const bookingId = req.body.bookingId;
 
-    console.log("nn",update)
 
 
-console.log(bookingId)
   }
 
 
@@ -117,9 +110,7 @@ console.log(bookingId)
 
     // const bookingId = req.body.bookingId;
 
-    console.log("nn",update)
 
-console.log(bookingId)
   }
 
 

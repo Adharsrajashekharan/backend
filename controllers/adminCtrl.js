@@ -11,7 +11,6 @@ const bookingModels=require('../models/bookingModels')
 
 
 const adminLogin=async(req,res)=>{
-    // console.log("meemm",req.body)
     const email='adarshrajashekhar@gmail.com'
     const password='q'
     try {
@@ -36,7 +35,6 @@ const adminLogin=async(req,res)=>{
 
 
 const addCar =async(req,res)=>{
-console.log("bobby",req.body)
 const {name,description,image,rentPerHour,capacity,fuelType,place,pickType}=req.body
     try {
          const result =await cloudinary.uploader.upload(image,{
@@ -88,8 +86,6 @@ const deleteCar =async(req,res)=>{
 
 
     try {
-        console.log("bombay",req.body)
-        // const deletecar =await Car.findOneAndDelete({_id:req.body.carid})
         const deletecar =await Car.findByIdAndUpdate({_id:req.body.carid},{ $set: { deleted: true } })
 
 
@@ -145,7 +141,6 @@ const bookedcars = async (req, res) => {
       const bookingCars = await bookingModels
         .find({})
         .populate("car", "name model year"); // join the cars collection and select only the name, model, and year fields
-      console.log("All Bookings: ", bookingCars);
       res.send(bookingCars);
     } catch (error) {
       console.error(error);

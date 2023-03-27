@@ -340,7 +340,6 @@ const getallcars=async(req,res)=>{
     // const allcars= await carmodel.updateMany({ $set: { deleted: false } });
 
     res.send(allcars)
-    console.log(allcars)
   } catch (error) {
     return res.status(400).json(error)
   }
@@ -685,7 +684,6 @@ const payment =async(req,res)=>{
   //   }
 
   const userProfile= async (req, res) => {
-    console.log("userProfile",req.body)
     try {
       const user = await userModel.find(req.body._id);
       if (!user) {
